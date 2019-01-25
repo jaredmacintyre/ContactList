@@ -1,0 +1,73 @@
+// SETUP INSTRUCTIONS ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+(Apologies, TypeScript needs a lot of things to run)
+
+LINUX
+
+Precursor:
+    -Open Terminal
+    -sudo apt install nodejs npm
+    -sudo apt install npm
+
+1. Navigate to the ContactApp directory:
+
+2. Install the TypeScript compiler:
+    npm install -g typescript
+
+3. Compile with:
+    make
+
+4. Install http-server to locally host the app:
+    npm install -g http-server
+    
+5. Start the local server:   
+    http-server -c-1
+
+6. Go to your browser (I tested in Firefox) and navigate to http://localhost:8080/app.html
+
+// CURRENT FUNCTIONALITY /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Right now, the only functionality is the ability to add business and personal contacts to the list. Edit/Delete functionality 
+is not complete. Styling is limited because this is pure TypeScript/HTML/CSS with no GUI libraries, and pure css is a lot of work.
+There is also no database to store information. While GUI functionality is limited, the implementation of core structures and OOP 
+concepts has been largely completed.
+
+-Adding too many Contacts makes the list bleed off the page and you can't scroll.
+
+
+// OOP IMPLEMENTATION DETAILS ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Encapsulation:
+    -In TypeScript, each member is public by default, and don't require public modifiers. Instance variables are marked private
+        and are accessible via accessors/mutators when necessary, and otherwise hidden from client programs.
+
+Constructors:
+    - The constructor of the class Contact is used as a super constructor for subclasses BusinessContact and PersonalContact
+
+Method Overriding:
+    - The outputHTML() method found in Contact is overridden by its subclasses, which reuse the parent code using a 
+        super.outputHTML() call. (e.g. BusinessContact.ts line 21)
+
+Method Overloading:
+    - I did not find a need for overloaded methods in this app as of yet.
+
+Accessors & Mutators:
+    - The use of accessors and mutators is shown in the abstract Contact class found in Contact.ts contains accessors and mutators 
+        for each of its private instance variables. These accessors and mutators are inherited by the subclasses BusinessContact 
+        and PersonalContact, which each have an extra accessor and mutator for their specialized instance variables.
+
+Polymorphism:
+    - The ContactManager class holds a variable storing an array of Contact objects (ContentManager.ts line 5). However, the objects
+        within this array are of type BusinessContact and PersonalContact (app.ts line 18/32). These classes extend Contact, and these objects are thus 
+        polymorphic and of both type Contact and BusinessContact/PersonalContact.
+
+Abstract Methods/Classes:
+    - The Contact class found in Contact.ts is abstract along with all of its methods. It exists as a super class to the BusinessContact
+        and PersonalContact classes, which can be instantiated.
+
+Interfaces:
+    - I did not find a need for interfaces in this app as of yet, using abstraction for inheritance instead.
+
+Event-Driven Programming:
+    - A basic GUI has been created using HTML, CSS, and TypeScript. Event-driven functionality can be seen in app.ts, where event 
+        listeners execute code when buttons are pressed on the GUI.

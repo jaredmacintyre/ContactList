@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta content="text/javascript" charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="app.css">
+<script type="module" src="app.js"></script>
+<html>
+    <head>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+        <title>Contact Manager</title>
+    </head>
+    <body>
+        <div class="ContactTab">
+            <button class="TabLink" id="btnPersonalContact" type="button">Add Personal Contact</button>
+            <button class="TabLink" id="btnBusinessContact" type="button">Add Business Contact</button>
+            <!-- <button id="Edit" type="button">Edit Contact</button> -->
+        </div>
+        <form class="InputForm">
+            <div id="BasicForm" class="TabContent">
+                <input type="text" id="txtFirstName" placeholder="First Name *">
+                <input type="text" id="txtLastName" placeholder="Last Name *">
+                <input type="text" id="txtPhoneNumber" placeholder="Phone Number *">
+                <input type="text" id="txtEmail" placeholder="Email Address *">
+            </div>
+            <div id="PersonalForm" class="TabContent">
+                <input type="text" id="txtNickname" placeholder="Nickname">
+                <button id="btnCreatePersonal" type="button">Save Contact</button>
+            </div>
+            <div id="BusinessForm" class="TabContent">
+                <input type="text" id="txtCompany" placeholder="Company">
+                <button id="btnCreateBusiness" type="button">Save Contact</button>
+            </div>
+        </form>
+        <ul id="ContactList">
+        </ul>
+    </body>
+</html>
