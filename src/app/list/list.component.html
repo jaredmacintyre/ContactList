@@ -1,0 +1,14 @@
+<mat-accordion>
+    <mat-expansion-panel color="primary" *ngFor="let contact of list; let i = index">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{contact.getType()}}</mat-panel-title>
+            <mat-panel-description>{{contact.fullname}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <span> {{contact.outputHTML()}} </span>
+        <div class="delete">
+            <button mat-raised-button color="warn" (click)="delete(i)">Delete Contact</button>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<span class="empty" *ngIf="list.length==0"> No Contacts </span>

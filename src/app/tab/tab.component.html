@@ -1,0 +1,64 @@
+<mat-tab-group color="accent">
+  <mat-tab label="View List">
+    <app-list></app-list>
+  </mat-tab>
+  <mat-tab label="Add Personal Contact">
+    <form id="personal-form" [formGroup]="personalForm" (ngSubmit)="onPersonal()">
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="firstName" required>
+        <mat-placeholder class="placeholder">First Name</mat-placeholder>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="lastName" required>
+        <mat-placeholder class="placeholder">Last Name</mat-placeholder>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="phoneNumber" required>
+        <mat-placeholder class="placeholder">Phone Number</mat-placeholder>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="email" required>
+        <mat-placeholder class="placeholder">Email Address</mat-placeholder>
+        <!-- <mat-error *ngIf="pemail.invalid">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="nickname">
+        <mat-placeholder class="placeholder">Nickname</mat-placeholder>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Add Contact</button>
+    </form> 
+  </mat-tab>
+  <mat-tab label="Add Business Contact">
+    <form id="business-form" [formGroup]="businessForm" (ngSubmit)="onBusiness()">
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="firstName" required>
+        <mat-placeholder class="placeholder">First Name</mat-placeholder>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="lastName" required>
+        <mat-placeholder class="placeholder">Last Name</mat-placeholder>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="phoneNumber" required>
+        <mat-placeholder class="placeholder">Phone Number</mat-placeholder>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput formControlName="email" required>
+        <mat-placeholder class="placeholder">Email Address</mat-placeholder>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" floatLabel="never">
+        <input matInput id="txtCompany">
+        <mat-placeholder class="placeholder">Company</mat-placeholder>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Add Contact</button>
+    </form> 
+  </mat-tab>
+  <mat-tab label="Export">
+    <app-export></app-export>
+  </mat-tab>
+</mat-tab-group>
