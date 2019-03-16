@@ -48,7 +48,7 @@ All together this is a perfect example of inheritance, abstraction, accessors & 
 
 The second case of OO I would like to showcase is the ListService class found in `/src/app/list.service.ts`.
 
-This class looks a bit different due to it being an Angular Service, used to communicate between the Components and the Data. This is an excellent example of MVC as the service acts as a Controller between the Contact classes and Database (Model) and the Components (View), communicating back and forth.
+This class looks a bit different due to it being an Angular Service, used to communicate between the Components and the Data. This is an excellent example of MVC as the service acts as a Model accessing the database, and communicating back and forth with the components (Controller).
 
 This class also extensively uses lambdas pipe data from the database into the interface and to pipe observable changes into other components. This is a standard use of lambdas in Angular and TypeScript, and it not only shortens code but also allows for this observable subscription to be possible.
 
