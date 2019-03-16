@@ -1,0 +1,11 @@
+Convert Celcius to Farenheit
+<form id="temp-form" [formGroup]="form">
+  <mat-form-field appearance="legacy" floatLabel="never">
+    <input matInput formControlName="celcius">
+    <mat-placeholder class="placeholder">Enter a temperature...</mat-placeholder>
+  </mat-form-field>
+</form>
+<div></div>
+<button mat-flat-button color="accent" (click)="onClick()">Convert</button>
+<div></div>
+{{this.temperature}}

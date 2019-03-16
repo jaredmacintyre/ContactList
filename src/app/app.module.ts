@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from './http-error.interceptor';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
@@ -19,6 +21,8 @@ import { TabComponent } from './tab/tab.component';
 
 import { ListService } from './list.service';
 import { ExportComponent } from './export/export.component';
+import { RestComponent } from './rest/rest.component';
+import { SoapComponent } from './soap/soap.component';
 
 // Initialize Firebase
 var config = {
@@ -36,10 +40,13 @@ var config = {
     ToolbarComponent,
     ListComponent,
     TabComponent,
-    ExportComponent
+    ExportComponent,
+    RestComponent,
+    SoapComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -57,7 +64,18 @@ var config = {
     MatSnackBarModule,
     MatCardModule
   ],
-  providers: [ListService, { provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [
+    ListService, 
+    { 
+      provide: FirestoreSettingsToken, 
+      useValue: {} 
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

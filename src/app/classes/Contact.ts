@@ -48,12 +48,25 @@ export abstract class Contact {
     set email(email: string) {
         this._email = email;
     }
+
     // Methods
+    
+    /**
+     * Returns an array of strings containing the parameter values of the instantiated object
+     * @pre The Contact Object has been instantiated
+     * @post The function must have returned a string array
+     * @return {string[]} A collection of stringified parameters
+    **/
     outputHTML(): string[] {
         let output: string[] = ["Name: " + this.fullname, "Phone: " + this._phone_number, "Email: " + this._email];
         return output;
     }
-
+    /**
+     * Returns the type of the object
+     * @pre The Object has been instantiated
+     * @post The function must have returned a string
+     * @return {string} The name of the object Class
+    **/
     getType(): string {
         return this.constructor.toString().match(/\w+/g)[1];
     }

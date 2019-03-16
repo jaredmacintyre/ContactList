@@ -18,27 +18,27 @@ export class ExportComponent implements OnInit {
     this.listService.list.subscribe(list => this.list = list);
   }
 
+  /**
+   * Converts the contact list to JSON
+   * @pre The Contact[] List has been instantiated
+   * @post The list has been converted to JSON and returned
+   * @return {string} A JSON object representating the contact list
+  **/
   toJSON() {
     return JSON.stringify(this.list, null, 2)
   }
 
-  // Convert string/JSON to XML
+  /**
+   * Converts the contact list to XML
+   * @pre The Contact[] List has been instantiated
+   * @post The list has been converted to XML and returned
+   * @return {string} An XML object representing the contact list
+  **/
   toXML() {
     const builder = new Builder();
     let json = JSON.stringify(this.list);
     let xml = builder.buildObject(json);
     // console.log(xml);
     return xml;
-}
-
-  // saveJSON() {
-  //   let fs = require("fs");
-  //   fs.writeFile("./contactlist.json", this.toJSON() , (err) => {
-  //     if (err) {
-  //         console.error(err);
-  //         return;
-  //     };
-  //   })
-  // }
-
+  }
 }
