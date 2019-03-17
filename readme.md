@@ -60,7 +60,7 @@ As a user, I would like it so that the theme choice is made persistent, so that 
 
 As a user, I would like to be able to upload images to contacts so that I can distinguish contacts at a glance.
 
-* As of now this is partially implemented. Images can be successfully uploaded to the firebase storage cloud. However retrieving them and binding them to the Contact objects is still being implemented. This is challenging because firebase does not allow images to be stored in its databases, which are where the Contact list is stored. Rather, images and other media are to be stored on the Firebase Storage, which forces a seperation between the Contact list and the images and makes it difficult to keep track of corresponding files.
+* As of now this is partially implemented. Images can be successfully uploaded to the firebase storage cloud. However retrieving them and binding them to the Contact objects is still being implemented. This is challenging because firebase does not allow images to be stored in its databases, which are where the Contact list is stored. Rather, images and other media are to be stored on the Firebase Storage, which forces a seperation between the Contact list and the images and makes it difficult to keep track of corresponding files. The implementation code for the file upload component can be found in `/src/app/file-upload/`.
 
 As a user, I would like to be able to see random jokes on the webpage so that I will be more entertained.
 
