@@ -23,6 +23,8 @@ import { ListService } from './list.service';
 import { ExportComponent } from './export/export.component';
 import { RestComponent } from './rest/rest.component';
 import { SoapComponent } from './soap/soap.component';
+import { DropZoneDirective } from './drop-zone.directive';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 // Initialize Firebase
 var config = {
@@ -42,7 +44,9 @@ var config = {
     TabComponent,
     ExportComponent,
     RestComponent,
-    SoapComponent
+    SoapComponent,
+    DropZoneDirective,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,

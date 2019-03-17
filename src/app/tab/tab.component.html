@@ -19,19 +19,13 @@
       <mat-form-field appearance="legacy" floatLabel="never">
         <input matInput formControlName="email" required>
         <mat-placeholder class="placeholder">Email Address</mat-placeholder>
-        <!-- <mat-error *ngIf="pemail.invalid">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="email.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error> -->
       </mat-form-field>
       <mat-form-field appearance="legacy" floatLabel="never">
         <input matInput formControlName="nickname">
         <mat-placeholder class="placeholder">Nickname</mat-placeholder>
       </mat-form-field>
       <button mat-raised-button color="primary">Add Contact</button>
-    </form> 
+    </form>
   </mat-tab>
   <mat-tab label="Add Business Contact">
     <form id="business-form" [formGroup]="businessForm" (ngSubmit)="onBusiness()">

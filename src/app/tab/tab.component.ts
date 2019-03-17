@@ -14,6 +14,7 @@ export class TabComponent implements OnInit {
   personalForm: FormGroup;
   businessForm: FormGroup;
   submitted = false;
+  selectedFile = null;
 
   constructor(private fb: FormBuilder, private listService: ListService) { }
 
@@ -58,7 +59,7 @@ export class TabComponent implements OnInit {
     }
 
     // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.businessForm.value))
-    this.listService.addContact(new PersonalContact(this.pfirstName, this.plastName, this.pphoneNumber, this.pemail, this.nickname))
+    this.listService.addContact(new PersonalContact(this.pfirstName, this.plastName, this.pphoneNumber, this.pemail, this.nickname), this.selectedFile)
   }
 
   onBusiness() {
@@ -70,6 +71,11 @@ export class TabComponent implements OnInit {
     }
 
     // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.businessForm.value))
-    this.listService.addContact(new BusinessContact(this.bfirstName, this.blastName, this.bphoneNumber, this.bemail, this.company))
+    this.listService.addContact(new BusinessContact(this.bfirstName, this.blastName, this.bphoneNumber, this.bemail, this.company), this.selectedFile)
+  }
+
+  onFileSelected(event) {
+    console.log(event.target.files[0])
+    this.selectedFile = event.target.files[0];
   }
 }

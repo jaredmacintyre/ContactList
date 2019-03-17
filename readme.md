@@ -54,6 +54,22 @@ This class also extensively uses lambdas pipe data from the database into the in
 
 ## User Stories
 
+As a user, I would like it so that the theme choice is made persistent, so that I don't have to configure the app to use my preferred theme every time the page reloads.
+
+* `/src/app/theme.service.ts` now communicates the theme to a document on the firestore cloud, which is updated on theme changes and queried upon the building of the website. Theme changes now persist across all instances. On startup, because it needs to wait for a response from the database, it takes a half second to load the theme, which is something I'd like to explore solutions for in the future.
+
+As a user, I would like to be able to upload images to contacts so that I can distinguish contacts at a glance.
+
+* As of now this is partially implemented. Images can be successfully uploaded to the firebase storage cloud. However retrieving them and binding them to the Contact objects is still being implemented. This is challenging because firebase does not allow images to be stored in its databases, which are where the Contact list is stored. Rather, images and other media are to be stored on the Firebase Storage, which forces a seperation between the Contact list and the images and makes it difficult to keep track of corresponding files.
+
+As a user, I would like to be able to see random jokes on the webpage so that I will be more entertained.
+
+* Not my best user story, but it facilitates the usage of a REST api in my project. More details on implementation below.
+
+As a user, I would like to be able to convert the temperature from celcius to farenheit so that I can better understand the relationship between the different temperature metrics.
+
+* Again, not related to my app but this was the SOAP api that I chose to use. More details on implementation below.
+
 #### Pre and Post Conditions
 
 Typescript and Angular does not support strong pre and post conditions, and so I have instead used comments to define them. The comments are made in the standard JavaDoc style for readability. Examples of these pre and post conditions can be found within the Contact class at `/src/app/classes/Contact.ts` and within the ExportComponent class at `/src/app/export/export.component.ts`.

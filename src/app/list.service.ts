@@ -64,7 +64,7 @@ export class ListService {
     // console.log(this.dbList);
   }
   // Methods
-  addContact(contact: Contact) {
+  addContact(contact: Contact, image) {
     // this.list.pipe(take(1)).subscribe(val => {
     //   let newList =  [...val, contact]
     //   this.listSource.next(newList);
@@ -100,29 +100,4 @@ export class ListService {
     // this.afs.collection('contacts').ref.where("id", "==", index).get().
     // this.afs.collection('contacts').doc(index + "").delete();
   }
-
-  // editContact(type: number) {
-  //     // TODO
-  // }
-
-  
-  // // for debugging
-  // toString(): string {
-  //     let list = "";
-  //     for (var i = 0, len = this._contact_list.length; i < len; i++) {
-  //         list += this._contact_list[i].toString() + "\n";
-  //     }
-  //     return list;
-  // }
-  // private listSource = new Subject<Contact[]>();
-  // list = this.listSource.asObservable();
-
-
-  // addContact(contact: Contact) {
-  //   this.list.
-  //   this.listSource.next(contact);
-  // }
-  // deleteContact(message: string) {
-  //   this.listSource.next(contact);
-  // }
 }
