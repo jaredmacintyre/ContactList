@@ -15,5 +15,5 @@ A basic material web app to manage a list of contacts. This project was develope
 
 Sample Screenshots:
 
-<img src="https://i.imgur.com/zIjCuts.png?1" width="50%" height="50%"/><br>
-<img src="https://i.imgur.com/6O2FKtu.png" width="50%" height="50%"/><br>
+<img src="https://i.imgur.com/zIjCuts.png?1"/><br>
+<img src="https://i.imgur.com/6O2FKtu.png"/><br>
