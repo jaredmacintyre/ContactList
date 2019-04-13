@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatInputModule, MatFormFieldModule, MatTabsModule, MatListModule, 
-         MatExpansionModule, MatToolbarModule, MatSnackBarModule, MatCardModule } from '@angular/material';
+         MatExpansionModule, MatToolbarModule, MatSnackBarModule, MatCardModule, MatIconModule } from '@angular/material';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ListComponent } from './list/list.component';
@@ -66,7 +66,8 @@ var config = {
     MatListModule,
     MatExpansionModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [
     ListService, 

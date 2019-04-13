@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BusinessContact } from './../classes/BusinessContact';
-import { PersonalContact } from './../classes/PersonalContact';
+import { Contact } from './../classes/Contact';
 import { ListService } from '../list.service';
 
 
@@ -24,54 +23,23 @@ export class TabComponent implements OnInit {
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      nickname: ''
     });
-    this.businessForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      company: ''
-    });
-
-
   }
 
   // convenience getters for easy access to form fields
-  get pfirstName () { return this.personalForm.get("firstName").value; }
-  get plastName () { return this.personalForm.get("lastName").value; }
-  get pphoneNumber () { return this.personalForm.get("phoneNumber").value; }
-  get pemail () { return this.personalForm.get("email").value; }
-  get nickname () { return this.personalForm.get("nickname").value; }
-
-  get bfirstName () { return this.businessForm.get("firstName").value; }
-  get blastName () { return this.businessForm.get("lastName").value; }
-  get bphoneNumber () { return this.businessForm.get("phoneNumber").value; }
-  get bemail () { return this.businessForm.get("email").value; }
-  get company () { return this.businessForm.get("company").value; }
+  get firstName () { return this.personalForm.get("firstName").value; }
+  get lastName () { return this.personalForm.get("lastName").value; }
+  get phoneNumber () { return this.personalForm.get("phoneNumber").value; }
+  get email () { return this.personalForm.get("email").value; }
 
   onPersonal() {
-    // this.submitted = true;
-
     // // stop here if form is invalid
     if (this.personalForm.invalid) {
         return;
     }
 
     // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.businessForm.value))
-    this.listService.addContact(new PersonalContact(this.pfirstName, this.plastName, this.pphoneNumber, this.pemail, this.nickname), this.selectedFile)
-  }
-
-  onBusiness() {
-    // this.submitted = true;
-
-    // // stop here if form is invalid
-    if (this.businessForm.invalid) {
-        return;
-    }
-
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.businessForm.value))
-    this.listService.addContact(new BusinessContact(this.bfirstName, this.blastName, this.bphoneNumber, this.bemail, this.company), this.selectedFile)
+    this.listService.addContact(new Contact(this.firstName, this.lastName, this.phoneNumber, this.email), this.selectedFile)
   }
 
   onFileSelected(event) {

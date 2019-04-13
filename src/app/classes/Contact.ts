@@ -1,4 +1,4 @@
-export abstract class Contact {
+export class Contact {
     // Variables
     private _firstname: string;
     private _lastname: string;

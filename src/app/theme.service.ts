@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Theme } from './theme';
-import { take, map } from 'rxjs/operators';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +14,10 @@ export class ThemeService {
     this.themeDoc.ref.get().then(res => {
       this.currentTheme = res.data().id;
       document.body.classList.add(this.currentTheme);
-      // console.log(this.currentTheme);
     });
   }
 
   changeTheme() {
-    // this.outputJSON();
     if (document.body.classList.contains("theme1")) {
       document.body.classList.remove("theme1");
       document.body.classList.add("theme2");
@@ -47,13 +43,4 @@ export class ThemeService {
       this.themeDoc.update({"id":"theme1"});
     }
   }
-
-  // outputJSON() {
-  //   let json = JSON.stringify(this.currentTheme);
-  //   // var file = new File(["Hello, world!"], "../assets/theme.json", {type: "text/plain;charset=utf-8"});
-  //   // saveAs(file);
-  //   var blob = new Blob(["Hello"], {type: "text/plain;charset=utf-8"});
-  //   saveAs(blob , "test.txt");
-  // }
-
 }

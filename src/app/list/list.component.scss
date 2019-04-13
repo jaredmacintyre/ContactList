@@ -4,3 +4,72 @@
     color: gray;
     justify-self: flex-end;
 }
+
+body {
+    margin: 40px;
+}
+
+.example-card {
+    width: 100%;
+    align-self: flex-start;
+    text-align: center;
+    padding: 40px 0px 10px;
+    margin: 0px;
+    border: 1px;
+}
+
+mat-card-content, mat-card-actions {
+    margin-left: 10px;
+    margin-right: 10px;
+} 
+
+.card-item, .add-card {
+    width: 200px;
+    margin: 0px;
+}
+
+.card-deck-container{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    align-items: center;
+
+    padding: 20px 10px;
+    // // margin: 10px 10px 10px 10px;
+    // background-color: #a78989;
+    
+}
+
+.card-name {
+    font-weight: bold;
+    font-size: 16;
+    margin-bottom: 4px;
+}
+
+.card-body span{
+    color: rgb(49, 49, 49);
+}
+
+img {
+    height: auto;
+    border-radius: 50%;
+    width: 60%;
+    height: 60%;
+    padding-bottom: 10px;
+    // box-shadow: 0 0 5px #000
+}
+
+.profile-image {
+    margin-bottom: 4px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.delete {
+    justify-self: flex-end;
+}

@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body {
+html, body {
     margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(240, 230, 230);
 }
 
 @import '~@angular/material/theming';
@@ -10,9 +13,9 @@ body {
 @include mat-core();
 
 $theme1: mat-light-theme(mat-palette($mat-indigo), mat-palette($mat-pink), mat-palette($mat-red));
-$theme2: mat-light-theme(mat-palette($mat-green), mat-palette($mat-purple), mat-palette($mat-red));
+$theme2: mat-light-theme(mat-palette($mat-brown), mat-palette($mat-green), mat-palette($mat-red));
 $theme3: mat-light-theme(mat-palette($mat-blue-grey), mat-palette($mat-amber), mat-palette($mat-red));
-$theme4: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-deep-orange), mat-palette($mat-red));
+$theme4: mat-light-theme(mat-palette($mat-blue), mat-palette($mat-orange), mat-palette($mat-red));
 
 
 .theme1 {

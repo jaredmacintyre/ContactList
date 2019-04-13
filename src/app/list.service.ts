@@ -3,8 +3,6 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { Contact } from './classes/Contact';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { BusinessContact } from './classes/BusinessContact';
-import { PersonalContact } from './classes/PersonalContact';
  
 @Injectable({
   providedIn: 'root'
@@ -36,24 +34,12 @@ export class ListService {
     // create contact list from db data
     this.list2.subscribe(list2 => {
       for (let i = 0; i < list2.length; i++) {
-        if (list2[i].type == "PersonalContact") {
-          this.next = new PersonalContact(
-            list2[i].firstName,
-            list2[i].lastName,
-            list2[i].phoneNumber,
-            list2[i].email,
-            list2[i].nickname,
-          );
-        }
-        if (list2[i].type == "BusinessContact") {
-          this.next = new BusinessContact(
-            list2[i].firstName,
-            list2[i].lastName,
-            list2[i].phoneNumber,
-            list2[i].email,
-            list2[i].company,
-          );
-        }
+        this.next = new Contact(
+          list2[i].firstName,
+          list2[i].lastName,
+          list2[i].phoneNumber,
+          list2[i].email,
+        );
         this.list.pipe(take(1)).subscribe(val => {
           if (i == 0) this.nextList = [this.next];
           else this.nextList = [...val, this.next];
@@ -61,34 +47,15 @@ export class ListService {
         });
       }
     });
-    // console.log(this.dbList);
   }
   // Methods
   addContact(contact: Contact, image) {
-    // this.list.pipe(take(1)).subscribe(val => {
-    //   let newList =  [...val, contact]
-    //   this.listSource.next(newList);
-    // })
-    if (contact.getType() == "PersonalContact") {
-      this.afs.collection('contacts').add({
-        type: contact.getType(),
-        firstName: contact.firstname,
-        lastName: contact.lastname,
-        phoneNumber: contact.phone_number,
-        email: contact.email,
-        // nickname: contact.nickname,
-      });
-    }
-    if (contact.getType() == "BusinessContact") {
-      this.afs.collection('contacts').add({
-        type: contact.getType(),
-        firstName: contact.firstname,
-        lastName: contact.lastname,
-        phoneNumber: contact.phone_number,
-        email: contact.email,
-        // company: contact.company,
-      });
-    }
+    this.afs.collection('contacts').add({
+      firstName: contact.firstname,
+      lastName: contact.lastname,
+      phoneNumber: contact.phone_number,
+      email: contact.email,
+    });
   }
 
   deleteContact(index: number) {

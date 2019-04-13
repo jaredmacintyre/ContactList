@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { map, retry, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { JokeResponse } from './rest';
 
 @Injectable({
